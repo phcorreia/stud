@@ -29,24 +29,25 @@ static int	iscset(char c, char const *set)
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	char			*s2;
-	size_t			i;
-	size_t			j;
-	size_t			len;
-	size_t			lenset;
+	long int		i;
+	long int		j;
+	long int		len;
 
 	i = 0;
-	len = ft_strlen(s1);
+	if (s1[0] == '\0')
+		return (s2 = ft_calloc(1, sizeof(char)));
 	while (s1[i] && iscset(s1[i], set) == 1)
 		i++;
+	len = ft_strlen(s1) - 1;
 	while (i != 0 && iscset(s1[len], set) == 1)
 		len--;
-	lenset = len - i;
-	if (lenset < 0)
-		lenset = 0;
-	if (!(s2 = ft_calloc(lenset + 1, sizeof(char))))
+	len = len - i;
+	if (len < 0)
+		len = 0;
+	if (!(s2 = ft_calloc(len + 1, sizeof(char))))
 		return (0);
 	j = 0;
-	while (j <= lenset)
+	while (j <= len)
 	{
 		s2[j] = s1[i + j];
 		j++;

@@ -45,6 +45,7 @@ SRCS		= ./ft_toupper.c\
 			  ./ft_isprint.c\
 			  ./ft_isdigit.c\
 			  ./ft_split.c\
+			  ./ft_itoa.c\
 
 OBJS		= $(SRCS:.c=.o)
 

@@ -6,12 +6,11 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:02:47 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/22 11:14:56 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 16:50:06 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -19,9 +18,9 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t len;
 
 	i = 0;
-	len = ft_strlen(src);
-	if (!src || !dst)
+	if (dst == NULL || src == NULL)
 		return (0);
+	len = ft_strlen(src);
 	while (i < size)
 	{
 		if (src[i] != '\0' && (i < size - 1))

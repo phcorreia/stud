@@ -6,11 +6,11 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:32:23 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/18 15:33:17 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 13:34:20 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
@@ -25,7 +25,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		d[i] = s[i];
 		if ((unsigned char)s[i] == (unsigned char)c)
-			return((char *)dst + i + 1);
+			return ((char *)dst + i + 1);
 		i++;
 	}
 	return (0);

@@ -6,11 +6,11 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:58:02 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/18 15:15:49 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 13:35:56 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

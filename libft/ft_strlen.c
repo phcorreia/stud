@@ -6,11 +6,11 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:50:41 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/10/09 17:22:46 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 16:50:39 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 size_t		ft_strlen(const char *str)
 {

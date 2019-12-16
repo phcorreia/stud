@@ -6,19 +6,18 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:19:38 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/18 12:09:15 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 13:39:03 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <string.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
 
 	i = 0;
-	if (s && fd)
+	if (s)
 	{
 		while (s[i])
 			i++;

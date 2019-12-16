@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   itoa.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/02 17:15:50 by pcorreia          #+#    #+#             */
+/*   Updated: 2019/12/16 13:33:46 by pcorreia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	nb_chiffre(long int n)
+static int	nb_char(long int n)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (n > 0)
@@ -13,9 +25,9 @@ int	nb_chiffre(long int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	int		i;
+	int			i;
 	char		*nb;
 	long int	nbr;
 
@@ -24,12 +36,12 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		i += 1;
-		nbr = nbr * -1;
+		nbr = -nbr;
 	}
-	i += nb_chiffre(nbr);
+	i += nb_char(nbr);
 	if (i == 0)
 		i = 1;
-	if (!(nb = (char *)ft_calloc(i + 1, sizeof(char))))
+	if (!(nb = ft_calloc(i + 1, sizeof(char))))
 		return (NULL);
 	nb[0] = '-';
 	if (n == 0)

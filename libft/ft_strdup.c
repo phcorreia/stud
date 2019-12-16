@@ -6,12 +6,11 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 13:51:55 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/22 11:48:39 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 13:41:16 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

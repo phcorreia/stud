@@ -6,7 +6,7 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:09:45 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/22 15:44:05 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 16:51:13 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	iscset(char c, char const *set)
 {
-	size_t	i;
+	size_t			i;
 
 	i = 0;
 	while (set[i] != '\0')
@@ -29,28 +29,26 @@ static int	iscset(char c, char const *set)
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	char			*s2;
-	long int		i;
-	long int		j;
-	long int		len;
+	int				i;
+	int				j;
+	int				len;
+	int				lenset;
 
 	i = 0;
-	if (s1[0] == '\0')
-		return (s2 = ft_calloc(1, sizeof(char)));
+	if (!set || !s1)
+		return (NULL);
+	len = ft_strlen(s1);
 	while (s1[i] && iscset(s1[i], set) == 1)
 		i++;
-	len = ft_strlen(s1) - 1;
-	while (i != 0 && iscset(s1[len], set) == 1)
+	while (len != 0 && iscset(s1[len - 1], set) == 1)
 		len--;
-	len = len - i;
-	if (len < 0)
-		len = 0;
-	if (!(s2 = ft_calloc(len + 1, sizeof(char))))
-		return (0);
-	j = 0;
-	while (j <= len)
-	{
+	lenset = len - i;
+	if (lenset < 0)
+		lenset = 0;
+	if (!(s2 = ft_calloc(lenset + 1, sizeof(char))))
+		return (NULL);
+	j = -1;
+	while (++j + i < len)
 		s2[j] = s1[i + j];
-		j++;
-	}
 	return (s2);
 }

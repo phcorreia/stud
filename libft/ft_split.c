@@ -6,97 +6,63 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 15:45:53 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/22 16:48:33 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 17:12:14 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	iscset(char b, char c)
+static int	count_word(const char *s, char c)
 {
-	if (b == c)
-		return (1);
-	return (0);
+	int		count;
+	int		word;
+	count = 0;
+	word = 0;
+	if (!s)
+		return (0);
+	while (*s)
+	{
+		if (word == 0 && *s != c)
+		{
+			word = 1;
+			count++;
+		}
+		else if (*s == c)
+			word = 0;
+		s++;
+	}
+	return (count);
 }
-
-static int	count(const char *s, char c)
+static int	ft_wordslen(const char *s, char c)
 {
 	int		i;
-	int		nbword;
-
 	i = 0;
-	if (iscset(s[i], c) || !s)
-		nbword = 0;
-	else
-		nbword = 1;
-	while (s[i])
+	while (*s && *s != c)
 	{
-		if (iscset(s[i], c) && s[i + 1] && iscset(s[i + 1], c) == 0)
-			nbword++;
 		i++;
+		s++;
 	}
-	return (nbword);
+	return (i);
 }
-
-static char	*wbyw(const char *s, char c)
+char		**ft_split(const char *s, char c)
 {
-	char	*word;
-	int		nbchar;
+	int		count;
 	int		i;
-
+	char	**tab;
 	i = 0;
-	nbchar = 0;
-	while (iscset(s[nbchar], c) == 0 && s[nbchar])
-		nbchar++;
-	if (!(word = ft_calloc(nbchar + 1, sizeof(char))))
-		return (0);
-	while (i < nbchar)
+	count = count_word(s, c);
+	if (!s)
+		return (NULL);
+	if (!(tab = malloc(sizeof(char *) * (count + 1))))
+		return (NULL);
+	while (count--)
 	{
-		word[i] = s[i];
+		while (*s && *s == c)
+			s++;
+		if (!(tab[i] = ft_substr(s, 0, ft_wordslen(s, c))))
+			return (NULL);
+		s = s + ft_wordslen(s, c);
 		i++;
 	}
-	return (word);
-}
-
-static char	**freem(char **str, int i)
-{
-	int		j;
-
-	j = 0;
-	while (j < i)
-	{
-		free(str[j]);
-		j++;
-	}
-	free(str);
-	return (0);
-}
-
-char		**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	int		nbstr;
-	char	**fstr;
-
-	i = 0;
-	j = 0;
-	if (s == '\0')
-		return (0);
-	nbstr = count(s, c);
-	if (!(fstr = ft_calloc(nbstr + 1, sizeof(char *))))
-		return (0);
-	while (i < nbstr)
-	{
-		while (iscset(s[j], c) && s[j])
-			j++;
-		fstr[i] = wbyw(&s[j], c);
-		if (wbyw(&s[j], c) == 0)
-			return (freem(fstr, i));
-		while (iscset(s[j], c) == 0 && s[j])
-			j++;
-		i++;
-	}
-	fstr[i] = 0;
-	return (fstr);
+	tab[i] = 0;
+	return (tab);
 }

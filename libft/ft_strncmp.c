@@ -6,16 +6,16 @@
 /*   By: pcorreia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 18:02:05 by pcorreia          #+#    #+#             */
-/*   Updated: 2019/11/18 17:56:19 by pcorreia         ###   ########.fr       */
+/*   Updated: 2019/12/16 13:43:57 by pcorreia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
-	int diff;
+	size_t	i;
+	int		diff;
 
 	i = 0;
 	if (n == 0)
